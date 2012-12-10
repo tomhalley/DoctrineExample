@@ -1,0 +1,154 @@
+/*STRUCTURE************************************/
+html {
+	background: #f9f9f9;
+	font-size: 14pt;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+	width: 960px;
+	height: 100%;
+	margin: 0 auto;
+	background: white;
+}
+
+header {
+	padding: 20px;
+	background: #333;
+}
+
+header h1 {
+	color: white;
+	font-size: 5.5em;
+}
+
+nav {
+	background: #222;
+	height: 48px;
+}
+nav ul {}
+nav ul li {
+	float: left;
+	display: inline-block;
+}
+
+nav ul li a {
+	display: block;
+	padding: 15px 20px;
+	color: white;
+	text-decoration: none;
+}
+
+nav ul li a:hover {
+	background: #666;
+}
+
+section#main {
+	padding: 20px;
+}
+
+/*POST*************************************/
+.post {
+ 	margin: 15px 0 30px 0;
+}
+
+.post h2 {
+	font-weight: bold;
+	color: #222;
+	font-size: 1.8em;
+	margin-bottom: 10px;
+}
+
+.post h2 a { 
+	text-decoration: none;
+}
+
+.post p {
+	color: #333;
+	line-height: 1.2em;
+	letter-spacing: 0.05em;
+	margin-bottom: 10px;
+}
+
+.post address {
+	color: #444;
+	font-style: italic;
+}
+
+.post address .date {
+	color: #888;
+}
+
+/*EDIT POST******************************/
+fieldset {
+	border: 1px solid #999;
+	width: 600px;
+	margin: 0 auto;
+	padding: 15px;
+	font-size: 0.9em;
+	color: #555;
+}
+
+fieldset label {
+	display: inline-block;
+	width: 85px;
+	vertical-align: top;
+	font-size: 0.9em;
+}
+
+fieldset textarea {
+	height: 300px;
+}
+
+fieldset textarea,
+fieldset input[type="email"],
+fieldset input[type="text"] {
+	width: 590px;
+	margin-bottom: 5px;
+}
+
+fieldset input[type="submit"] {
+	margin-top: 5px;
+}
+
+/*POST COMMENT****************************/
+.post fieldset {
+	margin: 20px 0 0 0;
+	width: 350px;
+	padding: 10px;
+}
+
+.post fieldset legend {
+	padding: 0 5px;
+	font-style: italic;
+	color: #666;
+}
+
+.post fieldset textarea {
+	height: 60px;
+}
+
+.post fieldset textarea,
+.post fieldset input[type="email"],
+.post fieldset input[type="text"] {
+	width: 250px;
+}
+
+.post fieldset input[type="submit"] {
+	margin-left: 90px;
+}
+
+/*VIEW ALL TABLE*************************/
+table {
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+	width: 100%;
+	color: #333;
+}
+
+table th,
+table td {
+	border-right: 1px solid #666;
+	border-bottom: 1px solid #666;
+	padding: 3px;
+}

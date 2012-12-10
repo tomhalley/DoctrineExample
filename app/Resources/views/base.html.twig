@@ -3,11 +3,24 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/reset.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/main.css') }}" />
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        <header>
+            <h1>Doctrine2 Blog</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/app_dev.php/">Home</a></li>
+                <li><a href="/app_dev.php/view_all">Edit</a></li>
+            </ul>
+        </nav>
+        <section id="main">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        </section>
     </body>
+    {% block javascripts %}{% endblock %}
 </html>

@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+<a href="/app_dev.php/new_post">Create new post >>></a>
+<br><br>
+<table border="1">
+	<tr>
+		<th>ID</th>
+		<th>Title</th>
+		<th>Author</th>
+		<th>Date</th>
+		<th></th>
+	</tr>
+
+	{% for post in posts %}
+		<tr>
+			<td>{{ post.id }}</td>
+			<td>{{ post.title }}</td>
+			<td>{{ post.author }}</td>
+			<td>{{ post.date|date("Y-m-d H:m:s") }}</td>
+			<td>
+				<a href="/app_dev.php/edit/{{ post.id }}">Edit</a> |
+				<a href="/app_dev.php/delete/{{ post.id }}">Delete</a>
+			</td>
+		</tr>
+	{% endfor %}
+
+</table>
+
+{% endblock %}

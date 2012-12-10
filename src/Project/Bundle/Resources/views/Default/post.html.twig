@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+		<div class="post">
+			<h2>{{ post.title }}</h2>
+			<p>{{ post.post }}</p>
+			<address>{{ post.author }} : <span class="date">{{ post.date|date("Y-m-d") }}</span></address>
+			<form method="post" action="/submit_comment">
+				<fieldset>
+					<legend>Leave a comment</legend>
+
+					<label for="email{{ post.id }}">Email:</label>
+					<input type="email" name="email" id="email{{ post.id }}" />
+					<br>
+					<label for="comment{{ post.id }}">Comment:</label>
+					<textarea name="comment" id="comment{{ post.id }}"></textarea>
+					<br>
+					<input type="submit" value="Submit" />
+				</fieldset>
+			</form>
+		</div>
+
+{% endblock %}
