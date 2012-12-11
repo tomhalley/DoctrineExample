@@ -171,6 +171,8 @@ Enjoy!
 [10]: http://symfony.com/doc/2.1/cookbook/email.html
 [11]: http://symfony.com/doc/2.1/cookbook/logging/monolog.html
 [12]: http://symfony.com/doc/2.1/cookbook/assetic/asset_management.html
-[13]: http://jmsyst.com/bundles/JMSSecurityExtraBundle/master
-[14]: http://jmsyst.com/bundles/JMSDiExtraBundle/master
-[15]: http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html
+
+DoctrineExample
+===============
+
+A simple Symfony 2 blog application demonstrating basic CRUD operations with Doctrine2
