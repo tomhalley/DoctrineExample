@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
-    /**
+     /**
      * @Template
      */
     public function indexAction() 
@@ -25,24 +25,8 @@ class DefaultController extends Controller
     /**
      * @Template
      */
-    public function editPostAction($id) 
+    public function deletePostAction($id) 
     {
-        $post = $this->getDoctrine()
-            ->getRepository("ProjectBundle:Post")
-            ->find($id);
-
-        if(!$post) {
-            throw $this->createNotFoundException(
-                "No Post found with ID of " . $id
-            );
-        }
-
-        return array("post" => $post);
-    }
-    /**
-     * @Template
-     */
-    public function deletePostAction($id) {
         $post = $this->getDoctrine()
             ->getRepository("ProjectBundle:Post")
             ->find($id);
@@ -57,7 +41,7 @@ class DefaultController extends Controller
         $em->remove($post);
         $em->flush();
 
-        return new Response("Post with ID of ".$id." has been deleted");
+        return $this->redirect($this->generateUrl('project_edit_posts'));
     }
 
     /**
@@ -93,30 +77,49 @@ class DefaultController extends Controller
     /**
      * @Template
      */
-    public function newPostAction() {
-        return array();
-    }
+    public function editAction(Request $request, $id = null) {
+        if($id) {
+            $post = $this->getDoctrine()
+                ->getRepository("ProjectBundle:Post")
+                ->find($id);
 
-    /**
-     * @Template
-     */
-    public function submitPostAction(Request $request)
-    {
-        $post = new Post();
-
-        if($request->isMethod('POST'))
-        {
-            $post->setTitle($request->request->get("title"));
-            $post->setPost($request->request->get("post"));
-            $post->setDate(new \DateTime("now"));
-            $post->setAuthor($request->request->get("author"));
-
-            $em = $this->getDoctrine()->getmanager();
-            $em->persist($post);
-            $em->flush();
+            if(!$post) {
+                $post = new Post();
+            }
+        } else {
+            $post = new Post();
         }
 
-        return new Response ("Created post id " . $post->getId());
+        $form = $this->createFormBuilder($post)
+            ->add('title', 'text')
+            ->add('post', 'textarea')
+            ->add('author', 'text')
+            ->getForm();
+
+        if ($request->isMethod('POST')) {
+            if($id) {
+                $post = $this->getDoctrine()
+                    ->getRepository("ProjectBundle:Post")
+                    ->find($id);
+            }
+
+            $form->bind($request);
+
+            if($form->isValid()) {
+                $post->setDate(new \DateTime('now'));
+
+                $em = $this->getDoctrine()->getmanager();
+                $em->persist($post);
+                $em->flush();
+            }
+
+            return $this->redirect($this->generateUrl('project_edit_posts'));
+        }
+
+        return $this->render('ProjectBundle:Default:edit.html.twig', array(
+            'form' => $form->createView(),
+            'post' => $post
+        ));
     }
 }
 

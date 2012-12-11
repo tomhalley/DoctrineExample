@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<a href="/app_dev.php/new_post">Create new post >>></a>
+<a href="{{ path('project_edit_post') }}">Create new post >>></a>
 <br><br>
 <table border="1">
 	<tr>
@@ -20,8 +20,8 @@
 			<td>{{ post.author }}</td>
 			<td>{{ post.date|date("Y-m-d H:m:s") }}</td>
 			<td>
-				<a href="/app_dev.php/edit/{{ post.id }}">Edit</a> |
-				<a href="/app_dev.php/delete/{{ post.id }}">Delete</a>
+				<a href="{{ path('project_edit_post', {'id':post.id }) }}">Edit</a> |
+				<a href="{{ path('project_delete_post', {'id':post.id }) }}">Delete</a>
 			</td>
 		</tr>
 	{% endfor %}

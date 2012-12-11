@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Project\Bundle\Entity\Post
  *
- * @ORM\Table()
+ * @ORM\Table(name="Post")
  * @ORM\Entity
  */
 class Post
@@ -15,39 +15,40 @@ class Post
     /**
      * @var integer $id
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string $title
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
      */
     private $title;
 
     /**
      * @var string $post
      *
-     * @ORM\Column(name="post", type="text")
+     * @ORM\Column(name="post", type="text", nullable=false)
      */
     private $post;
 
     /**
      * @var \DateTime $date
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="date", type="datetime", nullable=false)
      */
     private $date;
 
     /**
      * @var string $author
      *
-     * @ORM\Column(name="author", type="string", length=255)
+     * @ORM\Column(name="author", type="string", length=255, nullable=false)
      */
     private $author;
+
 
 
     /**

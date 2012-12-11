@@ -1,4 +1,4 @@
-project_hello:
+project_home:
     defaults: { _controller: ProjectBundle:Default:index }
     pattern: "/"
 
@@ -6,32 +6,17 @@ project_all_posts:
     defaults: { _controller: ProjectBundle:Default:index }
     pattern: "/posts"
 
-
-
-
-project_new_post:
-    defaults: { _controller: ProjectBundle:Default:newPost }
-    pattern: "/new_post"
-
-project_submit_post:
-    defaults: { _controller: ProjectBundle:Default:submitPost }
-    pattern: "/submit_post"
+project_edit_post:
+    defaults: { _controller: ProjectBundle:Default:edit, id : null }
+    pattern: "/edit/{id}"
 
 project_get_post:
     defaults: { _controller: ProjectBundle:Default:post }
     pattern: "/post/{id}"
 
-project_edit_post:
-    defaults: { _controller: ProjectBundle:Default:editPost }
-    pattern: "/edit/{id}"
-
 project_delete_post:
     defaults: { _controller: ProjectBundle:Default:deletePost }
     pattern: "/delete/{id}"
-
-project_submit_post:
-    defaults: { _controller: ProjectBundle:Default:submitPost }
-    pattern: "/submit_post"
 
 project_edit_posts:
     defaults: { _controller: ProjectBundle:Default:viewAll }

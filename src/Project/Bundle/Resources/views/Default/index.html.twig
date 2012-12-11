@@ -4,10 +4,10 @@
 
 	{% for post in posts %}
 		<div class="post">
-			<h2><a href="/app_dev.php/post/{{ post.id }}">{{ post.title }}</a></h2>
+			<h2><a href="{{ path('project_get_post', { 'id': post.id }) }}">{{ post.title }}</a></h2>
 			<p>{{ post.post }}</p>
 			<address>{{ post.author }} : <span class="date">{{ post.date|date("Y-m-d") }}</span></address>
-			<form method="post" action="/submit_comment">
+			<form method="post" action="{{ path('project_submit_comment') }}">
 				<fieldset>
 					<legend>Leave a comment</legend>
 
