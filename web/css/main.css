@@ -140,15 +140,22 @@ fieldset input[type="submit"] {
 
 /*VIEW ALL TABLE*************************/
 table {
-	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
 	border-left: 1px solid #666;
 	width: 100%;
 	color: #333;
 }
 
+th {
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	background: #666;
+}
+
 table th,
 table td {
 	border-right: 1px solid #666;
-	border-bottom: 1px solid #666;
-	padding: 3px;
+	border-top: 1px solid #666;
+	padding: 7px;
 }
